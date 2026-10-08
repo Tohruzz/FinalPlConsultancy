@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel | PL Auto Consultant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <div id="loginSection">
+
+        <div id="loginContainer">
+
+            <h1>Admin Login</h1>
+
+            <form id="loginForm">
+
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+
+                <p id="errorMessage">
+                    Invalid username or password
+                </p>
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <div id="adminPanel">
+
+        <nav class="adminNavbar">
+
+            <div class="adminBrand">
+
+                <img
+                    src="img/logo2.png"
+                    alt="PL Auto Consultant"
+                >
+
+                <h2>
+                    Admin Panel
+                </h2>
+
+            </div>
+
+
+            <div class="adminLinks">
+
+                <a href="#vehiclesSection">
+                    Available Vehicles
+                </a>
+
+                <a href="#enquirySection">
+                    Customer Enquiries
+                </a>
+
+                <a href="#sellSection">
+                    Sell Requests
+                </a>
+
+                <a href="adminAddVeh.html">
+                    Add Vehicle
+                </a>
+
+            </div>
+
+        </nav>
+
+
+        <main>
+
+            <section class="adminHero">
+
+                <p>
+                    PL AUTO CONSULTANT
+                </p>
+
+                <h1>
+                    Manage your
+                    <span>collection.</span>
+                </h1>
+
+            </section>
+
+
+            <section class="adminSection" id="vehiclesSection">
+
+                <div class="sectionHeader">
+
+                    <p>
+                        01
+                    </p>
+
+                    <h2>
+                        Available Vehicles
+                    </h2>
+
+                </div>
+
+                <div id="vehicleContainer"></div>
+
+            </section>
+
+
+            <section class="adminSection" id="enquirySection">
+
+                <div class="sectionHeader">
+
+                    <p>
+                        02
+                    </p>
+
+                    <h2>
+                        Customer Enquiries
+                    </h2>
+
+                </div>
+
+                <div id="enquiryContainer"></div>
+
+            </section>
+
+
+            <section class="adminSection" id="sellSection">
+
+                <div class="sectionHeader">
+
+                    <p>
+                        03
+                    </p>
+
+                    <h2>
+                        Sell Requests
+                    </h2>
+
+                </div>
+
+                <div id="sellContainer"></div>
+
+            </section>
+
+        </main>
+
+
+        <footer>
+
+            <p>
+                © 2026 PL Auto Consultant. Admin Panel
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

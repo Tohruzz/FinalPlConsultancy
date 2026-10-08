@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Vehicle | PL Auto Consultant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/adminAddVeh.css">
+
+</head>
+
+<body>
+
+    <nav class="adminNavbar">
+
+        <div class="navLeft">
+
+            <img
+                src="img/logo2.png"
+                alt="PL Auto Consultant"
+                class="logo"
+            >
+
+            <div class="brand">
+                PL auto consultant
+            </div>
+
+        </div>
+
+        <div class="navLinks">
+
+            <a href="admin.html">
+                Admin Panel
+            </a>
+
+            <a href="adminAddVeh.html" class="active">
+                Add Vehicle
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <section class="pageHero">
+
+            <div class="heroInner">
+
+                <p class="eyebrow">
+                    ADMINISTRATION
+                </p>
+
+                <h1>
+                    Add a
+                    <span>vehicle.</span>
+                </h1>
+
+                <p class="heroText">
+                    Add a new vehicle to the PL Auto Consultant collection.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="addSection">
+
+            <div class="backContainer">
+
+                <a href="admin.html" class="backButton">
+                    ← Back to Admin Panel
+                </a>
+
+            </div>
+
+
+            <div class="addLayout">
+
+                <div class="formCard">
+
+                    <div class="cardHeading">
+
+                        <p class="sectionNumber">
+                            01
+                        </p>
+
+                        <h2>
+                            Vehicle Details
+                        </h2>
+
+                        <p>
+                            Enter the information for the new vehicle.
+                        </p>
+
+                    </div>
+
+
+                    <form id="addVehicleForm">
+
+                        <div class="formGroup">
+
+                            <label for="category">
+                                Category
+                            </label>
+
+                            <select id="category" required>
+
+                                <option value="">
+                                    Select Category
+                                </option>
+
+                                <option value="Car">
+                                    Car
+                                </option>
+
+                                <option value="Bike">
+                                    Bike
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="formRow">
+
+                            <div class="formGroup">
+
+                                <label for="brand">
+                                    Brand
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="brand"
+                                    placeholder="BMW"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="formGroup">
+
+                                <label for="model">
+                                    Model
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="model"
+                                    placeholder="3 Series"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="formRow">
+
+                            <div class="formGroup">
+
+                                <label for="price">
+                                    Price
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="price"
+                                    placeholder="1850000"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="formGroup">
+
+                                <label for="year">
+                                    Year
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="year"
+                                    placeholder="2022"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="formGroup">
+
+                            <label for="kmDriven">
+                                Kilometres
+                            </label>
+
+                            <input
+                                type="number"
+                                id="kmDriven"
+                                placeholder="45000"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="formGroup">
+
+                            <label for="description">
+                                Description
+                            </label>
+
+                            <textarea
+                                id="description"
+                                placeholder="Enter vehicle description..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="formButtons">
+
+                            <button
+                                type="submit"
+                                class="addButton"
+                            >
+                                Add Vehicle
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cancelButton"
+                                onclick="goBack()"
+                            >
+                                Cancel
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <div class="imageCard">
+
+                    <div class="cardHeading">
+
+                        <p class="sectionNumber">
+                            02
+                        </p>
+
+                        <h2>
+                            Vehicle Images
+                        </h2>
+
+                        <p>
+                            Select multiple images for this vehicle.
+                        </p>
+
+                    </div>
+
+
+                    <div class="uploadArea">
+
+                        <div class="uploadIcon">
+                            +
+                        </div>
+
+                        <h3>
+                            Add Vehicle Images
+                        </h3>
+
+                        <p>
+                            You can select multiple images at once.
+                        </p>
+
+                        <input
+                            type="file"
+                            id="images"
+                            multiple
+                            accept="image/*"
+                        >
+
+                    </div>
+
+
+                    <div class="imageNote">
+
+                        <span>
+                            TIP
+                        </span>
+
+                        <p>
+                            Use clear images of the vehicle from different angles.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 PL Auto Consultant. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="js/adminAddVeh.js"></script>
+
+</body>
+
+</html>

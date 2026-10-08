@@ -1,0 +1,1243 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap');
+
+:root{
+    --navy:#010736;
+    --deep:#0D1C42;
+    --blue:#22396F;
+    --lightBlue:#8399CC;
+    --cream:#FCF1D0;
+    --white:#ffffff;
+    --muted:#AEB8D0;
+    --line:rgba(252,241,208,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--navy);
+    color:var(--cream);
+    font-family:"Inter",sans-serif;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+#loginSection{
+    min-height:100vh;
+    width:100%;
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(34,57,111,.45),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 10% 85%,
+            rgba(131,153,204,.08),
+            transparent 30%
+        ),
+        var(--navy);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 20px;
+
+    position:relative;
+    overflow:hidden;
+}
+
+#loginSection::before{
+    content:"PL";
+
+    position:absolute;
+
+    left:-50px;
+    bottom:-130px;
+
+    font-family:"DM Serif Display",serif;
+
+    font-size:430px;
+    line-height:1;
+
+    color:rgba(131,153,204,.035);
+
+    pointer-events:none;
+
+    animation:slowPL 8s ease-in-out infinite alternate;
+}
+
+#loginSection::after{
+    content:"";
+
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    right:-220px;
+    top:-220px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(252,241,208,.06);
+
+    box-shadow:
+        0 0 0 70px rgba(252,241,208,.015),
+        0 0 0 140px rgba(252,241,208,.01);
+
+    animation:loginOrbit 15s linear infinite;
+}
+
+#loginContainer{
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+    max-width:480px;
+
+    padding:62px 55px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(13,28,66,.98),
+            rgba(5,13,49,.96)
+        );
+
+    border:1px solid rgba(252,241,208,.14);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.4),
+        inset 0 1px 0 rgba(255,255,255,.03);
+
+    animation:loginReveal 1s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+#loginContainer::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:85px;
+    height:1px;
+
+    background:var(--cream);
+}
+
+#loginContainer::after{
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    bottom:0;
+
+    width:85px;
+    height:1px;
+
+    background:var(--lightBlue);
+}
+
+#loginContainer h1{
+    margin:0 0 12px;
+
+    color:var(--cream);
+
+    font-family:"DM Serif Display",serif;
+
+    font-size:54px;
+    font-weight:400;
+
+    line-height:.95;
+
+    letter-spacing:-2px;
+}
+
+#loginContainer h1::after{
+    content:"ADMIN ACCESS";
+
+    display:block;
+
+    margin-top:23px;
+
+    color:var(--lightBlue);
+
+    font-family:"Inter",sans-serif;
+
+    font-size:9px;
+    font-weight:500;
+
+    letter-spacing:3px;
+}
+
+#loginForm{
+    margin-top:48px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:25px;
+}
+
+#loginForm div{
+    display:flex;
+    flex-direction:column;
+
+    gap:10px;
+}
+
+#loginForm label{
+    color:var(--muted);
+
+    font-size:9px;
+    font-weight:500;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+#loginForm input{
+    width:100%;
+    height:56px;
+
+    padding:0 17px;
+
+    border:1px solid rgba(252,241,208,.15);
+
+    background:rgba(1,7,54,.7);
+
+    color:var(--cream);
+
+    font-family:"Inter",sans-serif;
+    font-size:14px;
+
+    outline:none;
+
+    transition:
+        border .35s ease,
+        background .35s ease,
+        box-shadow .35s ease,
+        transform .35s ease;
+}
+
+#loginForm input::placeholder{
+    color:rgba(174,184,208,.35);
+}
+
+#loginForm input:focus{
+    border-color:var(--lightBlue);
+
+    background:rgba(1,7,54,.95);
+
+    box-shadow:
+        0 0 0 3px rgba(131,153,204,.07),
+        0 12px 30px rgba(0,0,0,.15);
+
+    transform:translateY(-1px);
+}
+
+#errorMessage{
+    display:none;
+
+    margin:0;
+
+    padding:13px 15px;
+
+    border-left:2px solid #d36d63;
+
+    background:rgba(211,109,99,.08);
+
+    color:#df9189;
+
+    font-size:11px;
+
+    line-height:1.5;
+}
+
+#loginForm button{
+    position:relative;
+
+    width:100%;
+    height:57px;
+
+    margin-top:8px;
+
+    border:1px solid var(--cream);
+
+    background:var(--cream);
+
+    color:var(--navy);
+
+    font-family:"Inter",sans-serif;
+
+    font-size:10px;
+    font-weight:600;
+
+    letter-spacing:2.5px;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:
+        color .4s ease,
+        transform .3s ease;
+}
+
+#loginForm button::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:var(--lightBlue);
+
+    transform:translateX(-101%);
+
+    transition:
+        transform .5s cubic-bezier(.16,1,.3,1);
+}
+
+#loginForm button:hover::before{
+    transform:translateX(0);
+}
+
+#loginForm button:hover{
+    transform:translateY(-3px);
+}
+
+#loginForm button{
+    isolation:isolate;
+}
+
+#loginForm button::after{
+    content:"LOGIN";
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:var(--navy);
+
+    z-index:2;
+}
+
+#loginForm button{
+    color:transparent;
+}
+
+
+/* =========================
+   ADMIN PANEL
+========================= */
+
+#adminPanel{
+    display:none;
+
+    min-height:100vh;
+
+    background:
+        radial-gradient(
+            circle at 90% 5%,
+            rgba(34,57,111,.16),
+            transparent 25%
+        ),
+        var(--navy);
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.adminNavbar{
+    width:100%;
+
+    height:82px;
+
+    padding:0 5%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+    background:rgba(1,7,54,.94);
+
+    border-bottom:1px solid rgba(252,241,208,.1);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    animation:navDown .8s cubic-bezier(.16,1,.3,1);
+}
+
+.adminBrand{
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    flex-shrink:0;
+}
+
+.adminBrand img{
+    width:92px;
+    height:38px;
+
+    object-fit:contain;
+
+    border-radius:20px;
+}
+
+.adminBrand h2{
+    color:var(--cream);
+
+    font-family:"Inter",sans-serif;
+
+    font-size:13px;
+    font-weight:500;
+
+    letter-spacing:1.8px;
+
+    text-transform:uppercase;
+}
+
+.adminLinks{
+    display:flex;
+    align-items:center;
+
+    gap:30px;
+}
+
+.adminLinks a{
+    position:relative;
+
+    color:var(--muted);
+
+    text-decoration:none;
+
+    font-size:10px;
+    font-weight:500;
+
+    letter-spacing:1.6px;
+
+    text-transform:uppercase;
+
+    transition:.35s ease;
+}
+
+.adminLinks a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+    height:1px;
+
+    background:var(--cream);
+
+    transition:.35s ease;
+}
+
+.adminLinks a:hover{
+    color:var(--cream);
+}
+
+.adminLinks a:hover::after{
+    width:100%;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.adminHero{
+    width:86%;
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:115px 0 105px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    animation:heroReveal 1s .15s cubic-bezier(.16,1,.3,1) both;
+}
+
+.adminHero::before{
+    content:"ADMIN";
+
+    position:absolute;
+
+    right:-20px;
+    top:10px;
+
+    font-family:"DM Serif Display",serif;
+
+    font-size:clamp(130px,18vw,260px);
+
+    line-height:1;
+
+    color:rgba(131,153,204,.035);
+
+    pointer-events:none;
+
+    white-space:nowrap;
+}
+
+.adminHero p{
+    position:relative;
+    z-index:2;
+
+    color:var(--lightBlue);
+
+    font-size:10px;
+    font-weight:500;
+
+    letter-spacing:4px;
+
+    margin-bottom:27px;
+}
+
+.adminHero h1{
+    position:relative;
+    z-index:2;
+
+    max-width:900px;
+
+    font-family:"DM Serif Display",serif;
+
+    font-size:clamp(58px,8vw,112px);
+
+    font-weight:400;
+
+    line-height:.88;
+
+    letter-spacing:-5px;
+
+    color:var(--cream);
+}
+
+.adminHero h1 span{
+    display:block;
+
+    color:var(--lightBlue);
+
+    font-style:italic;
+
+    margin-left:90px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.adminSection{
+    width:86%;
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:80px 0 120px;
+
+    border-top:1px solid rgba(252,241,208,.1);
+
+    scroll-margin-top:100px;
+
+    position:relative;
+
+    animation:sectionReveal .9s ease both;
+}
+
+.sectionHeader{
+    display:flex;
+    align-items:flex-end;
+
+    gap:22px;
+
+    margin-bottom:42px;
+}
+
+.sectionHeader p{
+    color:var(--lightBlue);
+
+    font-family:"DM Serif Display",serif;
+
+    font-size:22px;
+
+    line-height:1;
+
+    margin-bottom:7px;
+}
+
+.sectionHeader h2{
+    color:var(--cream);
+
+    font-family:"DM Serif Display",serif;
+
+    font-size:48px;
+
+    font-weight:400;
+
+    line-height:.95;
+
+    letter-spacing:-1.5px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+#vehicleContainer,
+#enquiryContainer,
+#sellContainer{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:22px;
+}
+
+#vehicleContainer > div,
+#enquiryContainer > div,
+#sellContainer > div{
+    position:relative;
+
+    padding:30px;
+
+    min-height:250px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(13,28,66,.95),
+            rgba(5,13,49,.9)
+        );
+
+    border:1px solid rgba(252,241,208,.1);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.18);
+
+    overflow:hidden;
+
+    transition:
+        transform .5s cubic-bezier(.16,1,.3,1),
+        border .4s ease,
+        box-shadow .5s ease;
+
+    animation:cardReveal .8s cubic-bezier(.16,1,.3,1) both;
+}
+
+#vehicleContainer > div::before,
+#enquiryContainer > div::before,
+#sellContainer > div::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:55px;
+    height:1px;
+
+    background:var(--lightBlue);
+
+    transition:width .5s ease;
+}
+
+#vehicleContainer > div::after,
+#enquiryContainer > div::after,
+#sellContainer > div::after{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    right:-80px;
+    bottom:-80px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(131,153,204,.08);
+
+    transition:.5s ease;
+}
+
+#vehicleContainer > div:hover,
+#enquiryContainer > div:hover,
+#sellContainer > div:hover{
+    transform:translateY(-8px);
+
+    border-color:rgba(131,153,204,.35);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.3);
+}
+
+#vehicleContainer > div:hover::before,
+#enquiryContainer > div:hover::before,
+#sellContainer > div:hover::before{
+    width:100px;
+}
+
+#vehicleContainer > div:hover::after,
+#enquiryContainer > div:hover::after,
+#sellContainer > div:hover::after{
+    transform:scale(1.3);
+}
+
+
+/* =========================
+   VEHICLE INFO
+========================= */
+
+.vehicleInfo h3{
+    color:var(--cream);
+
+    font-family:"DM Serif Display",serif;
+
+    font-size:30px;
+    font-weight:400;
+
+    line-height:1.05;
+
+    margin-bottom:22px;
+}
+
+.vehicleInfo p{
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    margin:7px 0;
+}
+
+.vehicleInfo p strong{
+    color:var(--cream);
+}
+
+
+/* =========================
+   ENQUIRY / SELL
+========================= */
+
+#enquiryContainer h3,
+#sellContainer h3{
+    color:var(--cream);
+
+    font-family:"DM Serif Display",serif;
+
+    font-size:28px;
+    font-weight:400;
+
+    line-height:1.1;
+
+    margin-bottom:20px;
+}
+
+#enquiryContainer p,
+#sellContainer p{
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    margin:7px 0;
+}
+
+#enquiryContainer p strong,
+#sellContainer p strong{
+    color:var(--cream);
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.vehicleInfo button,
+#enquiryContainer button,
+#sellContainer button{
+    position:relative;
+
+    padding:12px 20px;
+
+    margin:18px 7px 0 0;
+
+    border:1px solid rgba(252,241,208,.35);
+
+    background:transparent;
+
+    color:var(--cream);
+
+    cursor:pointer;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:9px;
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    overflow:hidden;
+
+    transition:
+        color .4s ease,
+        border .4s ease,
+        transform .3s ease;
+}
+
+.vehicleInfo button::before,
+#enquiryContainer button::before,
+#sellContainer button::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:var(--cream);
+
+    transform:translateX(-101%);
+
+    transition:
+        transform .45s cubic-bezier(.16,1,.3,1);
+
+    z-index:0;
+}
+
+.vehicleInfo button:hover::before,
+#enquiryContainer button:hover::before,
+#sellContainer button:hover::before{
+    transform:translateX(0);
+}
+
+.vehicleInfo button:hover,
+#enquiryContainer button:hover,
+#sellContainer button:hover{
+    color:var(--navy);
+
+    border-color:var(--cream);
+
+    transform:translateY(-2px);
+}
+
+.vehicleInfo button{
+    z-index:1;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    position:relative;
+
+    padding:38px 8%;
+
+    background:#02062b;
+
+    border-top:1px solid rgba(252,241,208,.08);
+
+    color:var(--muted);
+
+    text-align:center;
+
+    overflow:hidden;
+}
+
+footer::before{
+    content:"PL";
+
+    position:absolute;
+
+    left:50%;
+    top:-110px;
+
+    transform:translateX(-50%);
+
+    font-family:"DM Serif Display",serif;
+
+    font-size:220px;
+
+    color:rgba(131,153,204,.025);
+
+    pointer-events:none;
+}
+
+footer p{
+    position:relative;
+    z-index:2;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes navDown{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes heroReveal{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes sectionReveal{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes cardReveal{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes loginReveal{
+    from{
+        opacity:0;
+        transform:translateY(50px) scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+@keyframes slowPL{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-20px);
+    }
+}
+
+@keyframes loginOrbit{
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1050px){
+
+    .adminLinks{
+        gap:18px;
+    }
+
+    .adminLinks a{
+        font-size:9px;
+    }
+
+    #vehicleContainer,
+    #enquiryContainer,
+    #sellContainer{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .adminHero h1 span{
+        margin-left:50px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:750px){
+
+    .adminNavbar{
+        height:auto;
+        min-height:75px;
+
+        padding:18px 5%;
+
+        flex-direction:column;
+
+        gap:18px;
+    }
+
+    .adminBrand{
+        width:100%;
+
+        justify-content:flex-start;
+    }
+
+    .adminBrand img{
+        width:78px;
+        height:34px;
+    }
+
+    .adminBrand h2{
+        font-size:11px;
+    }
+
+    .adminLinks{
+        width:100%;
+
+        display:grid;
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:8px;
+    }
+
+    .adminLinks a{
+        padding:12px 8px;
+
+        border:1px solid rgba(252,241,208,.08);
+
+        text-align:center;
+
+        font-size:8px;
+
+        letter-spacing:1px;
+    }
+
+    .adminLinks a::after{
+        display:none;
+    }
+
+    .adminHero{
+        width:88%;
+
+        padding:80px 0 75px;
+    }
+
+    .adminHero::before{
+        font-size:110px;
+        right:-10px;
+        top:30px;
+    }
+
+    .adminHero h1{
+        font-size:60px;
+
+        letter-spacing:-3px;
+    }
+
+    .adminHero h1 span{
+        margin-left:30px;
+    }
+
+    .adminSection{
+        width:88%;
+
+        padding:65px 0 90px;
+    }
+
+    .sectionHeader{
+        align-items:flex-start;
+
+        flex-direction:column;
+
+        gap:10px;
+
+        margin-bottom:30px;
+    }
+
+    .sectionHeader h2{
+        font-size:42px;
+    }
+
+    #vehicleContainer,
+    #enquiryContainer,
+    #sellContainer{
+        grid-template-columns:1fr;
+
+        gap:18px;
+    }
+
+    #vehicleContainer > div,
+    #enquiryContainer > div,
+    #sellContainer > div{
+        padding:25px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    #loginSection{
+        padding:25px 16px;
+    }
+
+    #loginContainer{
+        padding:45px 25px;
+    }
+
+    #loginContainer h1{
+        font-size:43px;
+    }
+
+    #loginForm{
+        margin-top:38px;
+    }
+
+    .adminBrand{
+        gap:9px;
+    }
+
+    .adminBrand img{
+        width:68px;
+    }
+
+    .adminBrand h2{
+        font-size:10px;
+        letter-spacing:1.2px;
+    }
+
+    .adminHero{
+        padding:65px 0;
+    }
+
+    .adminHero h1{
+        font-size:48px;
+
+        letter-spacing:-2px;
+    }
+
+    .adminHero h1 span{
+        margin-left:15px;
+    }
+
+    .sectionHeader h2{
+        font-size:35px;
+    }
+
+    .vehicleInfo h3,
+    #enquiryContainer h3,
+    #sellContainer h3{
+        font-size:25px;
+    }
+}
+
+
+/* =========================
+   EXTRA SMALL
+========================= */
+
+@media(max-width:380px){
+
+    #loginContainer{
+        padding:38px 20px;
+    }
+
+    #loginContainer h1{
+        font-size:37px;
+    }
+
+    .adminLinks{
+        grid-template-columns:1fr;
+    }
+
+    .adminHero h1{
+        font-size:43px;
+    }
+
+    .sectionHeader h2{
+        font-size:31px;
+    }
+}

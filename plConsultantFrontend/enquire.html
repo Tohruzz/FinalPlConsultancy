@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Enquire | PL Auto Consultant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/enquire.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="navLeft">
+
+        <a href="index.html">
+            <img
+                src="img/logo2.png"
+                style="border-radius:20px;"
+                alt="PL Auto Consultant"
+                class="logo"
+            >
+        </a>
+
+        <a href="index.html" class="brand">
+            PL auto consultant
+        </a>
+
+    </div>
+
+    <div class="navLinks" id="navLinks">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="vehicles.html">
+            Available Vehicles
+        </a>
+
+        <a href="sell.html">
+            Sell Vehicles
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
+
+    <button
+        class="menuToggle"
+        id="menuToggle"
+        aria-label="Open menu"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</nav>
+
+
+    <main>
+
+        <section class="enquireHero">
+
+            <p class="eyebrow">
+                VEHICLE ENQUIRY
+            </p>
+
+          
+
+        </section>
+
+
+        <section class="enquireSection">
+
+            <div class="enquireIntro">
+
+               
+                <h2>
+                    Enquire
+                    <span>with us.</span>
+                </h2>
+
+                <p>
+                    Fill in your details and our team will
+                    get in touch with you soon.
+                </p>
+
+            </div>
+
+
+            <form id="enquiryForm">
+
+                <div class="formGroup">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="formGroup">
+
+                    <label for="phone">
+                        Phone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Your phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="formGroup">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Your email address"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="formGroup">
+
+                    <label for="message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Tell us what you would like to know..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button type="submit">
+                    Submit Enquiry
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <div id="successBox">
+
+            <div id="successContent">
+
+                <p class="successNumber">
+                    THANK YOU
+                </p>
+
+                <h2>
+                    Enquiry Submitted
+                </h2>
+
+                <p>
+                    Thank you for your enquiry.
+                </p>
+
+                <p>
+                    We will contact you soon.
+                </p>
+
+                <button onclick="closeSuccessBox()">
+                    OK
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footerTop">
+
+            <div class="footerBrand">
+
+                <img
+                    src="img/logo2.png"
+                    alt="PL Auto Consultant"
+                >
+
+                <p>
+                    PL auto consultant
+                </p>
+
+            </div>
+
+
+            <div class="footerLinks">
+
+                <div>
+
+                    <p class="footerTitle">
+                        Explore
+                    </p>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="vehicles.html">
+                        Vehicles
+                    </a>
+
+                    <a href="sell.html">
+                        Sell Vehicle
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <p class="footerTitle">
+                        Contact
+                    </p>
+
+                    <p>
+                        Marthandam, Tamil Nadu
+                    </p>
+
+                    <p>
+                        +91 8989898989
+                    </p>
+
+                    <p>
+                        plautoconsultant@gmail.com
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footerBottom">
+
+            <p>
+                © 2026 PL Auto Consultant. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/enquire.js"></script>
+
+</body>
+
+</html>
